@@ -14,8 +14,18 @@ export default function CreatePost() {
     async (title: string) =>
       await axios.post("/api/posts/addPost", {
         title,
-      })
-  );
+      }),
+    {
+      onError: (error) => {
+        console.log(error)
+      },
+      onSuccess: (data) => {
+        console.log(data)
+        setTitle("")
+        setIsDisabled(false)
+      }
+    }
+  )
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); // prevents refreshing from pressing button
