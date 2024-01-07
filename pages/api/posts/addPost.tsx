@@ -32,7 +32,7 @@ export default async function handler (
 
     if (!title.length){
       console.log("rah")
-      return res.status(403).json({ message: "Please do not leave empty, let it out"})
+      return res.status(403).json({ message: "Please do not leave empty."})
     }
   
     //create post
