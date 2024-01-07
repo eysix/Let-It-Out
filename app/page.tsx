@@ -6,6 +6,7 @@ import AddPost from "./components/AddPost";
 import Post from "./components/Post";
 import axios from "axios";
 import { useQuery } from "react-query";
+import { PostType } from "./types/Posts"
 
 // fetch all posts
 const allPosts = async () => {
@@ -14,7 +15,7 @@ const allPosts = async () => {
 };
 
 export default function Home() {
-  const { data, error, isLoading } = useQuery({
+  const { data, error, isLoading } = useQuery<PostType[]>({
     queryFn: allPosts,
     queryKey: ["posts"], // key allows you to invalidate query and refetch?
   });
@@ -27,13 +28,14 @@ export default function Home() {
   return (
     <main>
       <AddPost />
-      {data?.map((post: { id: number; user: { name: string; image: string; }; title: string; }) => (
+      {data?.map((post) => (
         <Post
           key={post.id}
           name={post.user.name}
           avatar={post.user.image}
           postTitle={post.title}
           id={post.id}
+          comments={post.Comment}
         />
       ))}
     </main>

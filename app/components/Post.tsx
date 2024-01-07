@@ -1,15 +1,9 @@
 'use client'
 import Image from "next/image"
 import Link from "next/link"
+import {PostType} from "../types/Posts"
 
-interface PostProps {
-  name: string;
-  avatar: string;
-  postTitle: string;
-  id: number;
-}
-
-const Post: React.FC<PostProps> = ({name, avatar, postTitle, id}) => {
+const Post: React.FC<PostType> = ({name, avatar, postTitle, id, comments}) => {
   return(
     <div className="bg-white my-8 p-8 rounded-lg">
       <div className="flex items-center gap-2">
@@ -28,7 +22,8 @@ const Post: React.FC<PostProps> = ({name, avatar, postTitle, id}) => {
       <div className="flex gap-4 cursor-pointer items-center">
         <Link href={`/post/${id}`}>
           <p className="text-sm font-bold text-gray-700">
-            Comment
+            {comments.length}
+            {' '}Comments
           </p>
         </Link>
       </div>
