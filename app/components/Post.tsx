@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import {PostType} from "../types/Posts"
 
-const Post: React.FC<PostType> = ({name, avatar, postTitle, id, comments}) => {
+const Post = ({name, avatar, postTitle, id, comments}: PostType) => {
   return(
     <div className="bg-white my-8 p-8 rounded-lg">
       <div className="flex items-center gap-2">

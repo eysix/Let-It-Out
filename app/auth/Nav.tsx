@@ -9,7 +9,7 @@ export default async function Nav() {
     console.log(session);
     
     return (
-      <nav className="flex justify-between items-center py-8">
+      <nav className="bg-gray-300 rounded-md flex justify-between items-center p-8">
         <Link href={"/"}>
           <h1 className="font-bold text-lg">Let it out.</h1>
         </Link>

@@ -69,7 +69,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  Post          Post[]
+  Post          Post[] // future ref: make lowercase so that all ".Post" can be made lowercase in tsx files
   Comment       Comment[]
 }
 
