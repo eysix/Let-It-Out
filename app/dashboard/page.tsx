@@ -12,7 +12,7 @@ export default async function Dashboard() {
 
   return (
     <main>
-      <h1 className="text-2xl font-bold">
+      <h1 className="text-2xl font-bold my-8">
         Welcome back, {session?.user?.name}!
       </h1>
       <MyPosts />

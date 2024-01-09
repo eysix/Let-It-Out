@@ -8,7 +8,6 @@ import EditPost from "./EditPost";
 const fetchAuthPosts = async() => {
   const response = await axios.get("api/posts/authPosts")
   return response.data
-
 }
 
 export default function MyPosts() {

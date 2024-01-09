@@ -8,7 +8,7 @@ import toast from 'react-hot-toast'
 export default function CreatePost() {
   const [title, setTitle] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
-  //const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
   let toastPostID: string
 
   //create a post
@@ -28,6 +28,7 @@ export default function CreatePost() {
       onSuccess: (data) => {
         //console.log(data)
         toast.success("Yay, your post has been made. 😊", {id: toastPostID});
+        queryClient.invalidateQueries(["posts"]) // to refresh queries after making post, ie add new post to list
         setTitle("")
         setIsDisabled(false)
       }
