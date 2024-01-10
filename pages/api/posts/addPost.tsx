@@ -22,7 +22,7 @@ export default async function handler(
 
     //get user
     const prismaUser = await prisma.user.findUnique({
-      where: { email: session?.user?.email },
+      where: { email: session?.user?.email || undefined },
     });
 
     // check title
@@ -39,12 +39,19 @@ export default async function handler(
 
     //create post
     try {
-      const result = await prisma.post.create({
-        data: {
-          title,
-          userId: prismaUser.id,
-        },
-      });
+      let result;
+
+      if (prismaUser !== null) {
+        result = await prisma.post.create({
+          data: {
+            title,
+            userId: prismaUser.id,
+          },
+        });
+      } else {
+        // Handle the case where prismaUser is null
+        res.status(403).json({message: "User not found."});
+      }
       res.status(200).json(result);
     } catch (err) {
       res.status(403).json({ err: "Error has occurred while making a post" });
