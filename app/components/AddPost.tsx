@@ -27,7 +27,7 @@ export default function CreatePost() {
       },
       onSuccess: (data) => {
         //console.log(data)
-        toast.success("Yay, your post has been made. 😊", {id: toastPostID});
+        toast.success("Woohoo! You just made a shout-out. 😊", {id: toastPostID});
         queryClient.invalidateQueries(["posts"]) // to refresh queries after making post, ie add new post to list
         setTitle("")
         setIsDisabled(false)
@@ -49,7 +49,7 @@ export default function CreatePost() {
           onChange={(e) => setTitle(e.target.value)}
           name="title"
           value={title}
-          placeholder="What's on your mind?"
+          placeholder="What are you giving a shout-out to today?"
           className="p-4 text-lg rounded-md my-2 bg-gray-200"
         ></textarea>
       </div>
