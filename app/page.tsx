@@ -6,7 +6,7 @@ import AddPost from "./components/AddPost";
 import Post from "./components/Post";
 import axios from "axios";
 import { useQuery } from "react-query";
-import { PostType } from "./types/Posts"
+import { thePostType } from "./types/Posts"
 
 // fetch all posts
 const allPosts = async () => {
@@ -15,7 +15,7 @@ const allPosts = async () => {
 };
 
 export default function Home() {
-  const { data, error, isLoading } = useQuery<PostType[]>({
+  const { data, error, isLoading } = useQuery<thePostType[]>({
     queryFn: allPosts,
     queryKey: ["posts"], // key allows you to invalidate query and refetch?
   });
