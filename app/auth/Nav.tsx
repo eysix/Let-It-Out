@@ -11,7 +11,7 @@ export default async function Nav() {
     return (
       <nav className="bg-violet-200 rounded-md flex justify-between items-center p-8">
         <Link href={"/"}>
-          <h1 className="font-bold text-lg">Shout em Out.</h1>
+          <h1 className="font-bold text-xl">Shout em Out.</h1>
         </Link>
         <ul className="flex items-center gap-6">
             {!session?.user  && <Login />}
