@@ -14,7 +14,7 @@ export default async function handler(
     // get user
     const prismaUser = await prisma.user.findUnique({
       where: {
-        email: session?.user?.email
+        email: session?.user?.email || undefined,
       }
     })
 

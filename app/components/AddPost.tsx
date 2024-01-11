@@ -50,7 +50,7 @@ export default function CreatePost() {
           name="title"
           value={title}
           placeholder="What are you giving a shout-out to today?"
-          className="p-4 text-lg rounded-md my-2 bg-gray-200"
+          className="p-4 text-md rounded-md my-2 bg-gray-200"
         ></textarea>
       </div>
       <div className="flex items-center justify-between gap-2">

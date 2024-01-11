@@ -22,7 +22,7 @@ const Post = ({name, avatar, postTitle, id, comments}: PostType) => {
       <div className="flex gap-4 cursor-pointer items-center">
         <Link href={`/post/${id}`}>
           <p className="text-sm font-bold text-gray-700">
-            {comments.length}
+            {comments?.length}
             {' '}Comments
           </p>
         </Link>

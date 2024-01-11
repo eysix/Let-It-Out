@@ -6,7 +6,6 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method == "GET") {
-
     //fetch posts
     try {
       const data = await prisma.post.findMany({
@@ -16,7 +15,7 @@ export default async function handler(
         },
         orderBy: {
           createdAt: "desc",
-        }
+        },
       });
       res.status(200).json(data);
     } catch (err) {
